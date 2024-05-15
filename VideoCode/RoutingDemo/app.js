@@ -1,10 +1,8 @@
 import express from "express";
+import morgan from "morgan";
 import ExpressError from "./expressError";
-import middleware from "./middleware"; // This imjport could maybe not work…
-
-const morgan = require("morgan");
-
-const userRoutes = require("./userRoutes");
+import middleware from "./middleware"; // This import could maybe not work…
+import userRoutes from "./userRoutes";
 
 const app = express();
 
