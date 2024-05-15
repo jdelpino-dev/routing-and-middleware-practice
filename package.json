@@ -1,0 +1,28 @@
+{
+  "name": "express-practice",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "author": "José Delpino",
+  "license": "Proprietary - All rights reserved",
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "testEnvironment": "node",
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
