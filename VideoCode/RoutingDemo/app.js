@@ -6,11 +6,18 @@ import userRoutes from "./userRoutes";
 
 const app = express();
 
+// Parsing middleware
 app.use(express.json());
-// app.use(middleware.logger)
+
+// app.use(middleware.logger)?
 app.use(morgan("dev"));
 
+// Load the user routes
 app.use("/users", userRoutes);
+
+// Main Routes
+
+// Favicon handler
 app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
 app.get("/secret", middleware.checkForPassword, (req, res, next) => {
