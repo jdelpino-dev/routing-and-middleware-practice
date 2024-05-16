@@ -7,7 +7,6 @@ function logger(req, res, next) {
 
 function checkForPassword(req, res, next) {
   try {
-    console.log(req.query.password);
     if (req.query.password !== "monkeybreath") {
       throw new ExpressError("Missing Password", 402);
     } else {
