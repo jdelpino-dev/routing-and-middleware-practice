@@ -41,8 +41,12 @@ describe("POST /cats", () => {
     expect(res.statusCode).toBe(201);
     expect(res.body).toEqual({ cat: { name: "Blue" } });
   });
-  test("Responds with 400 if name is missing", async () => {
+  test("Responds with 400 if the cat object is empty", async () => {
     const res = await request(app).post("/cats").send({});
+    expect(res.statusCode).toBe(400);
+  });
+  test("Responds with 400 if name value is an empty string", async () => {
+    const res = await request(app).post("/cats").send({ name: "" });
     expect(res.statusCode).toBe(400);
   });
 });
