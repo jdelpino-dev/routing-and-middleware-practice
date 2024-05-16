@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import ExpressError from "./expressError.js";
-import middleware from "./middleware.js"; // This import could maybe not work…
+import { checkForPassword, logger } from "./middleware.js";
 import userRoutes from "./userRoutes.js";
 
 const app = express();
@@ -9,9 +9,8 @@ const app = express();
 // Parsing middleware
 app.use(express.json());
 
-// app.use(middleware.logger)?
 app.use(morgan("dev"));
-app.use(middleware.logger);
+app.use(logger);
 
 // Load the user routes
 app.use("/users", userRoutes);
@@ -21,12 +20,12 @@ app.use("/users", userRoutes);
 // Favicon handler
 app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
-app.get("/secret", middleware.checkForPassword, (req, res, next) => {
+app.get("/secret", checkForPassword, (req, res, next) => {
   return res.send("I LOVE YOU <3 FOR REAL MARRY ME");
 });
 
-app.get("/private", middleware.checkForPassword, (req, res, next) => {
-  return res.send("YOU HAVE REACHED THE PRIVATE PAGE.  IT IS PRIVATE.");
+app.get("/private", checkForPassword, (req, res, next) => {
+  return res.send("YOU HAVE REACHED THE PRIVATE PAGE. IT IS PRIVATE.");
 });
 
 // 404 handler
