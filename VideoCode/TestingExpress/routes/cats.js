@@ -10,7 +10,12 @@ router.get("/", function (req, res) {
 
 router.post("/", function (req, res, next) {
   try {
-    if (!req.body.name) throw new ExpressError("Name is required", 400);
+    const body = req.body;
+    if (!body.name) throw new ExpressError("Name is required", 400);
+
+    body.name = body.name.trim();
+    if (!body.name) throw new ExpressError("Name is required", 400);
+
     const newCat = { name: req.body.name };
     cats.push(newCat);
     return res.status(201).json({ cat: newCat });
