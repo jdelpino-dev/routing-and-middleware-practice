@@ -1,16 +1,16 @@
 import express from "express";
 import morgan from "morgan";
 import ExpressError from "./expressError.js";
-import { checkForPassword, logger } from "./middleware.js";
+// import { checkForPassword, logger } from "./middleware.js";
+import middleware from "./middleware.js";
 import userRoutes from "./userRoutes.js";
-
 const app = express();
 
 // Parsing middleware
 app.use(express.json());
 
 app.use(morgan("dev"));
-app.use(logger);
+app.use(middleware.logger);
 
 // Load the user routes
 app.use("/users", userRoutes);
@@ -20,11 +20,11 @@ app.use("/users", userRoutes);
 // Favicon handler
 app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
-app.get("/secret", checkForPassword, (req, res, next) => {
+app.get("/secret", middleware.checkForPassword, (req, res, next) => {
   return res.send("I LOVE YOU <3 FOR REAL MARRY ME");
 });
 
-app.get("/private", checkForPassword, (req, res, next) => {
+app.get("/private", middleware.checkForPassword, (req, res, next) => {
   return res.send("YOU HAVE REACHED THE PRIVATE PAGE. IT IS PRIVATE.");
 });
 

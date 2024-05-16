@@ -17,5 +17,5 @@ function checkForPassword(req, res, next) {
     return next(e);
   }
 }
-
-export { checkForPassword, logger };
+const middleware = { checkForPassword, logger };
+export default middleware;
