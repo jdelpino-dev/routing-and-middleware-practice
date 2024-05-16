@@ -1,6 +1,5 @@
 import express from "express";
 import morgan from "morgan";
-import ExpressError from "./expressError.js";
 import { checkForPassword, logger } from "./middleware.js";
 import userRoutes from "./userRoutes.js";
 
