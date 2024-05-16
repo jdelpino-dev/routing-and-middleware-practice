@@ -1,8 +1,8 @@
 import express from "express";
 import morgan from "morgan";
-import ExpressError from "./expressError";
-import middleware from "./middleware"; // This import could maybe not work…
-import userRoutes from "./userRoutes";
+import ExpressError from "./expressError.js";
+import middleware from "./middleware.js"; // This import could maybe not work…
+import userRoutes from "./userRoutes.js";
 
 const app = express();
 
