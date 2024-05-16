@@ -5,7 +5,18 @@ import catsRoutes from "./routes/cats.js";
 
 const app = express();
 
-app.use(morgan("dev"));
+// On Request Middleware
+
+// Define a custom format named 'test'
+morgan.format("test", ":method :url :status");
+
+// Configure morgan with different formats based on the environment
+if (process.env.NODE_ENV !== "test") {
+  app.use(morgan("dev")); // Use the 'dev' format for non-test environments
+} else {
+  app.use(morgan("test")); // Use the custom 'test' format for testing
+}
+
 app.use(express.json());
 app.use("/cats", catsRoutes);
 
