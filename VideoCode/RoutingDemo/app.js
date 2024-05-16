@@ -20,6 +20,7 @@ app.use("/users", userRoutes);
 // Favicon handler
 app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
+// Protected routes
 app.get("/secret", middleware.checkForPassword, (req, res, next) => {
   return res.send("I LOVE YOU <3 FOR REAL MARRY ME");
 });
