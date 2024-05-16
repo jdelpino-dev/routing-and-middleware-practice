@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../app.js";
 import cats from "../fakeDb.js";
 
-process.env.NODE_ENV = "test";
+process.env.NODE_ENV = "test"; // So that we don't see debug info
 
 let pickles = { name: "Pickles" };
 
