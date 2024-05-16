@@ -21,11 +21,11 @@ app.use("/users", userRoutes);
 app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
 // Protected routes
-app.get("/secret", middleware.checkForPassword, (req, res, next) => {
+app.get("/secret", middleware.checkForPassword, (req, res) => {
   return res.send("I LOVE YOU <3 FOR REAL MARRY ME");
 });
 
-app.get("/private", middleware.checkForPassword, (req, res, next) => {
+app.get("/private", middleware.checkForPassword, (req, res) => {
   return res.send("YOU HAVE REACHED THE PRIVATE PAGE. IT IS PRIVATE.");
 });
 
