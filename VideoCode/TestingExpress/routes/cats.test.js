@@ -29,6 +29,7 @@ describe("GET /cats/:name", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ cat: pickles });
   });
+
   test("Responds with 404 for invalid cat", async () => {
     const res = await request(app).get(`/cats/icecube`);
     expect(res.statusCode).toBe(404);
@@ -41,10 +42,12 @@ describe("POST /cats", () => {
     expect(res.statusCode).toBe(201);
     expect(res.body).toEqual({ cat: { name: "Blue" } });
   });
+
   test("Responds with 400 if the cat object is empty", async () => {
     const res = await request(app).post("/cats").send({});
     expect(res.statusCode).toBe(400);
   });
+
   test("Responds with 400 if name value is an empty string", async () => {
     const res = await request(app).post("/cats").send({ name: "" });
     expect(res.statusCode).toBe(400);
@@ -59,6 +62,7 @@ describe("/PATCH /cats/:name", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ cat: { name: "Monster" } });
   });
+
   test("Responds with 404 for invalid name", async () => {
     const res = await request(app)
       .patch(`/cats/Piggles`)
@@ -73,6 +77,7 @@ describe("/DELETE /cats/:name", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ message: "Deleted" });
   });
+
   test("Responds with 404 for deleting invalid cat", async () => {
     const res = await request(app).delete(`/cats/hamface`);
     expect(res.statusCode).toBe(404);
