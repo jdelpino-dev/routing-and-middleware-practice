@@ -1,6 +1,6 @@
 import { Router } from "express";
-import ExpressError from "../expressError";
-import cats from "../fakeDb";
+import ExpressError from "../expressError.js";
+import cats from "../fakeDb.js";
 
 const router = Router();
 
