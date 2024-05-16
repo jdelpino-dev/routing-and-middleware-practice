@@ -1,3 +1,3 @@
-global.cats = [];
+cats = [];
 
 export default cats;
