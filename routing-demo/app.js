@@ -1,10 +1,11 @@
+import express from "express";
+import ExpressError from "./expressError";
+import middleware from "./middleware";
+import userRoutes from "./routes";
+
 /** Demo app for routing. */
 
-const express = require("express");
-const ExpressError = require("./expressError");
 const app = express();
-const userRoutes = require("./routes");
-const middleware = require("./middleware");
 
 app.use(express.json());
 
