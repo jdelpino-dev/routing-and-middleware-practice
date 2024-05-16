@@ -9,8 +9,9 @@ const app = express();
 // Parsing middleware
 app.use(express.json());
 
-app.use(morgan("dev"));
+// Logging middleware
 app.use(middleware.logger);
+app.use(morgan("dev"));
 
 // Load the user routes
 app.use("/users", userRoutes);
