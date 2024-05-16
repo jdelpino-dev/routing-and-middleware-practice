@@ -1,6 +1,6 @@
 import request from "supertest";
-import app from "../app";
-import cats from "../fakeDb";
+import app from "../app.js";
+import cats from "../fakeDb.js";
 
 process.env.NODE_ENV = "test";
 

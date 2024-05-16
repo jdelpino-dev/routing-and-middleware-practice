@@ -1,6 +1,6 @@
 import express from "express";
-import ExpressError from "./expressError";
-import catsRoutes from "./routes/cats";
+import ExpressError from "./expressError.js";
+import catsRoutes from "./routes/cats.js";
 
 const app = express();
 
