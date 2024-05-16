@@ -1,3 +1,3 @@
-cats = [];
+let cats = [];
 
 export default cats;
