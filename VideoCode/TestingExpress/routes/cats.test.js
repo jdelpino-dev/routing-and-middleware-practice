@@ -48,8 +48,13 @@ describe("POST /cats", () => {
     expect(res.statusCode).toBe(400);
   });
 
-  test("Responds with 400 if name value is an empty string", async () => {
-    const res = await request(app).post("/cats").send({ name: "" });
+  test("Responds with 400 Bad Request if the 'name' field is empty or contains only spaces", async () => {
+    // Test with an empty string
+    let res = await request(app).post("/cats").send({ name: "" });
+    expect(res.statusCode).toBe(400);
+
+    // Test with a string containing only spaces
+    res = await request(app).post("/cats").send({ name: "   " });
     expect(res.statusCode).toBe(400);
   });
 });
