@@ -1,5 +1,5 @@
 {
-  "name": "express-practice",
+  "name": "routing-and-middleware",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -17,9 +17,10 @@
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
     "babel-jest": "^29.7.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "morgan": "^1.10.0"
   },
-  "main": "index.js",
+  "main": "",
   "keywords": [],
   "description": "",
   "dependencies": {
