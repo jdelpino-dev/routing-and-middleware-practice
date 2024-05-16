@@ -11,6 +11,7 @@ app.use(express.json());
 
 // app.use(middleware.logger)?
 app.use(morgan("dev"));
+app.use(middleware.logger);
 
 // Load the user routes
 app.use("/users", userRoutes);
